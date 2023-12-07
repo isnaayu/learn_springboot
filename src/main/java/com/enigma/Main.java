@@ -3,19 +3,31 @@ package com.enigma;
 import com.enigma.entity.Car;
 import com.enigma.entity.Listrik;
 import com.enigma.entity.Manual;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Listrik electric = new Listrik();
-        Manual manual = new Manual();
-        Car Xenia = new Car("Xenia", electric);
-        Car Toyota = new Car("Toyota", manual);
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("master-beans.xml");
 
-        Xenia.startCar();
-        Toyota.startCar();
+        for (String n : context.getBeanDefinitionNames())
+            System.out.println(n);
+
+
+
+
+
+
+
+//        Listrik electric = new Listrik();
+//        Manual manual = new Manual();
+//        Car Xenia = new Car("Xenia", electric);
+//        Car Toyota = new Car("Toyota", manual);
+//
+//        Xenia.startCar();
+//        Toyota.startCar();
 
 
 
