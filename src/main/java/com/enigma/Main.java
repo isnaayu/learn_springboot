@@ -1,8 +1,11 @@
 package com.enigma;
 
+import com.enigma.entity.AppConfig;
 import com.enigma.entity.Car;
 import com.enigma.entity.Listrik;
 import com.enigma.entity.Manual;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
@@ -10,10 +13,33 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("master-beans.xml");
-
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         for (String n : context.getBeanDefinitionNames())
             System.out.println(n);
+
+//        Car civic = (Car) context.getBean("binturang");
+//        civic.startCar();
+        Car toyota = (Car) context.getBean("mobil");
+        toyota.startCar();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("master-beans.xml");
+//
+//        for (String n : context.getBeanDefinitionNames())
+//            System.out.println(n);
 
 
 
